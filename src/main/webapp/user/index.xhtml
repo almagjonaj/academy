@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<f:view contentType="text/html">
+	<h:body>
+		<h:form id="form">
+			<p:growl id="msgs" showDetail="true" />
+			<h3 style="margin-top: 0">Basic</h3>
+			<h3>#{manageUserBean.name}</h3>
+
+			<p:tabView>
+				<p:tab title="Godfather Part I">
+					<h:panelGrid columns="2" cellpadding="10">
+						<h:outputText value="The story begins as Don Vito Corleone..." />
+					</h:panelGrid>
+				</p:tab>
+
+				<p:tab title="Godfather Part II">
+					<h:panelGrid columns="2" cellpadding="10">
+						<p:dataTable id="mytab" var="al" value="#{manageUserBean.users}">
+							<p:column headerText="Id">
+								<h:outputText value="#{al.id}" />
+							</p:column>
+							<p:column headerText="Username">
+								<h:outputText value="#{al.username}" />
+							</p:column>
+							<p:column headerText="FirstName">
+								<h:outputText value="#{al.firstName}" />
+							</p:column>
+							<p:column headerText="LastName">
+								<h:outputText value="#{al.lastName}" />
+							</p:column>
+							<p:column headerText="Password">
+								<h:outputText value="#{al.password}" />
+							</p:column>
+						</p:dataTable>
+					</h:panelGrid>
+				</p:tab>
+			</p:tabView>
+		</h:form>
+
+	</h:body>
+</f:view>
+</html>

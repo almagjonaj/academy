@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15155227937860" configfile="/CompanyManagement/src/main/webapp/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="login.xhtml" id="pf151577619769124" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf151577619769125 pf151577621627029 pf151577622442731" path="login.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="user/index.xhtml" id="pf151577619769126" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" inlinks="pf151577619769125" path="/user/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="admin/index.xhtml" id="pf151577621627030" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf151577621627029" path="/admin/index.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="manager/index.xhtml" id="pf151577622442832" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" inlinks="pf151577622442731" path="/manager/index.xhtml"/>
+  <links id="pf151577619769125" target="pf151577619769126" source="pf151577619769124" outcome="user" redirect="true"/>
+  <links id="pf151577621627029" target="pf151577621627030" source="pf151577619769124" outcome="admin" redirect="true"/>
+  <links id="pf151577622442731" target="pf151577622442832" source="pf151577619769124" outcome="manager" redirect="true"/>
+</pageflow:Pageflow>
