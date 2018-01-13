@@ -4,16 +4,12 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 
 import com.akademia.dao.UserDao;
 import com.akademia.entities.UserEntity;
-import com.akademia.pojo.UserLoginRequest;
 import com.akademia.service.UserService;
-import com.akademia.util.PageRedirectUtil;
 
 @ViewScoped
 @ManagedBean(name = "manageUserBean")
@@ -23,7 +19,7 @@ public class ManageUserBean implements Serializable {
 
 	private static UserService userService = new UserService();
 
-	private UserLoginRequest entity = new UserLoginRequest();
+	public UserEntity entity = new UserEntity();
 
 	private static UserDao userDao = new UserDao();
 	private List<UserEntity> users;
@@ -36,15 +32,12 @@ public class ManageUserBean implements Serializable {
 	}
 
 	public String validateLogin() {
-		FacesMessage msg = null;
 		boolean isvalid = userDao.validateUser(entity.getUsername(), entity.getPassword());
 		if (isvalid) {
-			return PageRedirectUtil.USER;
+			return "/user/index.xhtml?faces-redirect=true";
 		} else {
-			msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Login Error", "Not Logined");
-			FacesContext.getCurrentInstance().addMessage(null, msg);
+			return "login.xhtml?faces-redirect=true";
 		}
-		return null;
 	}
 
 	public List<UserEntity> getUsers() {
@@ -63,11 +56,11 @@ public class ManageUserBean implements Serializable {
 		this.name = name;
 	}
 
-	public UserLoginRequest getEntity() {
+	public UserEntity getEntity() {
 		return entity;
 	}
 
-	public void setEntity(UserLoginRequest entity) {
+	public void setEntity(UserEntity entity) {
 		this.entity = entity;
 	}
 

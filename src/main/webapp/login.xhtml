@@ -10,15 +10,15 @@
 		<title>Login Page</title>
 	</h:head>
 	<h:body>
-		<h:form id="loginForm">
-			<p:panel id="panel" header="Login"
+		<h:form>
+			<p:panel header="Login"
 				style="width: 40%;height:30%;margin-left:35%;" styleClass="centered">
 				<p:messages id="msgs" />
-				<h:panelGrid columns="3" cellpadding="5">
+				<h:panelGrid id="panel" columns="3" cellpadding="5">
 					<p:outputLabel for="username" value="Username:" />
-					<p:inputText id="username" value="#{manageUserBean.entity.username}"
-						required="true" label="Username"
-						requiredMessage="Username cannot be empty"
+					<p:inputText id="username"
+						value="#{manageUserBean.entity.username}" required="true"
+						label="Username" requiredMessage="Username cannot be empty"
 						validatorMessage="The length of the username should be between 2 and 8 characters">
 						<f:validateLength minimum="2" maximum="8" />
 					</p:inputText>
@@ -26,19 +26,20 @@
 					<p:message for="username" id="theusername" display="tooltip" />
 
 					<p:outputLabel for="password" value="Password:" />
-					<p:inputText id="password" value="#{manageUserBean.entity.password}"
-						label="password" required="true"
-						requiredMessage="Password should not be empty">
+					<p:inputText id="password"
+						value="#{manageUserBean.entity.password}" label="password"
+						required="true" requiredMessage="Password should not be empty">
 						<f:validateLength minimum="2" />
-						
+
 					</p:inputText>
 
 					<p:message for="password" id="thepassword" display="tooltip" />
 
 				</h:panelGrid>
 
-				<p:commandButton value="Login" update="panel msgs" process="@this"
-					action="/user/index.xhtml?faces-redirect=true" icon="ui-icon-check" style="margin-left:35%;" ajax="false" />
+				<p:commandButton value="Login" update="panel"
+					action="#{manageUserBean.validateLogin}" icon="ui-icon-check"
+					style="margin-left:35%;" />
 			</p:panel>
 		</h:form>
 	</h:body>

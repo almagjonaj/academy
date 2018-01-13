@@ -30,14 +30,21 @@ public class UserDao extends GenericDao<UserEntity> {
 	}
 
 	public boolean validateUser(String username, String password) {
+		boolean userFound = false;
+
 		try {
-			Query query = session.createQuery("from UserEntity u where u.username=?1 and u.password=?2");
+			TypedQuery<UserEntity> query = session
+					.createQuery("from UserEntity as u where u.username=?1 and u.password=?2", UserEntity.class);
 			query.setParameter(1, username);
 			query.setParameter(2, password);
+			List<UserEntity> list = query.getResultList();
+			if ((list != null) && (list.size() > 0)) {
+				userFound = true;
+			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		return true;
+		return userFound;
 
 	}
 

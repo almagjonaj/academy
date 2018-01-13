@@ -2,19 +2,21 @@ package com.akademia.entities;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "user")
-@NamedQuery(name = "UserEntity.findAll", query = "select a from UserEntity a ")
 public class UserEntity {
 
 	@Id
@@ -29,8 +31,9 @@ public class UserEntity {
 	private String lastName;
 	@Column(name = "password")
 	private String password;
-	
-	@OneToMany(fetch = FetchType.EAGER)
+
+	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "userId", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "roleId", referencedColumnName = "id"))
 	private List<RoleEntity> roles;
 
 	public int getId() {
