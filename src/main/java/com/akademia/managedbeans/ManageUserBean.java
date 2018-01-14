@@ -36,7 +36,7 @@ public class ManageUserBean implements Serializable {
 		if (isvalid) {
 			return "/user/index.xhtml?faces-redirect=true";
 		} else {
-			return "login.xhtml?faces-redirect=true";
+			return "welcome.xhtml?faces-redirect=true";
 		}
 	}
 
