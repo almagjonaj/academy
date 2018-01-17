@@ -16,15 +16,10 @@ import com.akademia.service.UserService;
 public class ManageUserBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-
 	private static UserService userService = new UserService();
-
-	public UserEntity entity = new UserEntity();
-
-	private static UserDao userDao = new UserDao();
+	private UserEntity entity = new UserEntity();
+	private UserDao userDao = new UserDao();
 	private List<UserEntity> users;
-
-	private String name;
 
 	@PostConstruct
 	public void init() {
@@ -34,9 +29,9 @@ public class ManageUserBean implements Serializable {
 	public String validateLogin() {
 		boolean isvalid = userDao.validateUser(entity.getUsername(), entity.getPassword());
 		if (isvalid) {
-			return "/user/index.xhtml?faces-redirect=true";
+			return "private/user/index.xhtml?faces-redirect=true";
 		} else {
-			return "welcome.xhtml?faces-redirect=true";
+			return "login.xhtml?faces-redirect=true";
 		}
 	}
 
@@ -48,14 +43,6 @@ public class ManageUserBean implements Serializable {
 		this.users = users;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	public UserEntity getEntity() {
 		return entity;
 	}
@@ -63,5 +50,7 @@ public class ManageUserBean implements Serializable {
 	public void setEntity(UserEntity entity) {
 		this.entity = entity;
 	}
+	
+	
 
 }

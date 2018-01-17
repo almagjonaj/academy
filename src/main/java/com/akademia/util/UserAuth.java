@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -13,45 +14,44 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.akademia.entities.UserEntity;
-
-@WebFilter
+@WebFilter(filterName = "UserAuth", urlPatterns = { "*.xhtml" })
 public class UserAuth implements Filter {
 
-	private UserEntity sessionUser;
+	// private UserEntity sessionUser;
+	private ServletContext context;
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		// TODO Auto-generated method stub
-
-		HttpServletRequest req = (HttpServletRequest) request;
-		HttpServletResponse res = (HttpServletResponse) response;
-		String root = req.getContextPath();
-		String uri = req.getRequestURI();
-		HttpSession session=req.getSession();
-
-		boolean loggined = true;
 
 		try {
+			HttpServletRequest req = (HttpServletRequest) request;
+			HttpServletResponse res = (HttpServletResponse) response;
+			String contextPath = req.getContextPath();
+			String uri = req.getRequestURI();
+			HttpSession session = req.getSession(false);
 
-			sessionUser = (UserEntity) req.getSession().getAttribute("");
-			if (sessionUser.getUsername().isEmpty()) {
-				loggined = false;
+			if (uri.indexOf("/login.xhtml") > 0 || (session != null && session.getAttribute("username") != null)
+					|| uri.indexOf("/private/") > 0)
+				chain.doFilter(request, response);
+			else {
+				res.sendRedirect(contextPath + "/login.xhtml");
 			}
-			chain.doFilter(request, response);
-
-		} catch (Exception e) {
-			e.getMessage();
-			loggined = false;
+		} catch (Throwable t) {
+			t.getMessage();
 		}
-
-		chain.doFilter(request, response);
 
 	}
 
 	@Override
 	public void init(FilterConfig fConfig) throws ServletException {
+		this.context = fConfig.getServletContext();
+		this.context.log("Initializing");
+
+	}
+
+	@Override
+	public void destroy() {
 
 	}
 

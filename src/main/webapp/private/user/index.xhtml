@@ -9,40 +9,27 @@
 	<h:body>
 		<h:form id="form">
 			<p:growl id="msgs" showDetail="true" />
-			<h3 style="margin-top: 0">Basic</h3>
-			<h3>#{manageUserBean.name}</h3>
-
 			<p:tabView>
-				<p:tab title="Godfather Part I">
+				<p:tab>
 					<h:panelGrid columns="2" cellpadding="10">
-						<h:outputText value="The story begins as Don Vito Corleone..." />
-					</h:panelGrid>
-				</p:tab>
-
-				<p:tab title="Godfather Part II">
-					<h:panelGrid columns="2" cellpadding="10">
-						<p:dataTable id="mytab" var="al" value="#{manageUserBean.users}">
+						<p:dataTable id="mytab" var="user" value="#{manageUserBean.users}">
 							<p:column headerText="Id">
-								<h:outputText value="#{al.id}" />
+								<h:outputText value="#{user.id}" />
 							</p:column>
 							<p:column headerText="Username">
-								<h:outputText value="#{al.username}" />
+								<h:outputText value="#{user.username}" />
 							</p:column>
 							<p:column headerText="FirstName">
-								<h:outputText value="#{al.firstName}" />
+								<h:outputText value="#{user.firstName}" />
 							</p:column>
 							<p:column headerText="LastName">
-								<h:outputText value="#{al.lastName}" />
-							</p:column>
-							<p:column headerText="Password">
-								<h:outputText value="#{al.password}" />
+								<h:outputText value="#{user.lastName}" />
 							</p:column>
 						</p:dataTable>
 					</h:panelGrid>
 				</p:tab>
 			</p:tabView>
 		</h:form>
-
 	</h:body>
 </f:view>
 </html>

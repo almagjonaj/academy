@@ -2,7 +2,6 @@ package com.akademia.dao;
 
 import java.util.List;
 
-import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import org.hibernate.Session;
@@ -48,8 +47,20 @@ public class UserDao extends GenericDao<UserEntity> {
 
 	}
 
-	public void deleteRole() {
-		Query query = session.createQuery("delete r from RoleEntity r where r.id = 1");
-		query.executeUpdate();
+	public void updateUser(UserEntity user) {
+		try {
+
+		} catch (Exception e) {
+			e.getMessage();
+		}
+
+	}
+
+	public void deleteUser(List<UserEntity> user) {
+
+	}
+
+	public void insertUser(UserEntity user) {
+
 	}
 }
