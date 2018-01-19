@@ -6,10 +6,10 @@ import org.hibernate.Transaction;
 import com.akademia.util.HibernateUtil;
 
 public abstract class GenericDao<T> {
-	
-	public void add(T t) {
+	Session session = HibernateUtil.getSessionFactory().openSession();
+
+	public void save(T t) {
 		Transaction trans = null;
-		Session session = HibernateUtil.getSessionFactory().openSession();
 		try {
 			trans = session.beginTransaction();
 			session.save(t);
@@ -21,12 +21,11 @@ public abstract class GenericDao<T> {
 		}
 	}
 
-	public boolean remove(T t) {
+	public boolean delete(T t) {
 		Transaction trans = null;
-		Session session = HibernateUtil.getSessionFactory().openSession();
 		try {
 			trans = session.beginTransaction();
-			session.remove(t);
+			session.delete(t);
 			session.getTransaction().commit();
 			return true;
 		} catch (RuntimeException e) {
@@ -37,9 +36,8 @@ public abstract class GenericDao<T> {
 		return false;
 	}
 
-	public boolean edit(T t) {
+	public boolean update(T t) {
 		Transaction trans = null;
-		Session session = HibernateUtil.getSessionFactory().openSession();
 		try {
 			trans = session.beginTransaction();
 			session.saveOrUpdate(t);

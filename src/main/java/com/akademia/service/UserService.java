@@ -9,9 +9,9 @@ public class UserService {
 
 	private static UserDao userDao = new UserDao();
 
-	public void addUser(UserEntity user) {
+	/*public void addUser(UserEntity user) {
 		userDao.add(user);
-	}
+	}*/
 
 	public List<UserEntity> getAll() {
 		return userDao.getAll();

@@ -50,7 +50,4 @@ public class ManageUserBean implements Serializable {
 	public void setEntity(UserEntity entity) {
 		this.entity = entity;
 	}
-	
-	
-
 }

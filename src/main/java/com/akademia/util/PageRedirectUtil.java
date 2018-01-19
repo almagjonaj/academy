@@ -12,7 +12,7 @@ public class PageRedirectUtil {
 	public static final String ADMIN = "admin";
 
 	public String redirectToLogin() {
-		return "/user/index.xhtml?faces-redirect=true";
+		return "private/user/index.xhtml?faces-redirect=true";
 	}
 
 	public String redirectToWelcome() {
@@ -20,23 +20,23 @@ public class PageRedirectUtil {
 	}
 
 	public String redirectToBrandManager() {
-		return "";
+		return "private/manager/brandManager.xhtml?faces-redirect=true";
 	}
 
 	public String redirectToDepartmentManager() {
-		return "";
+		return "private/manager/departmentManager.xhtml?faces-redirect=true";
 	}
 
 	public String redirectToSectorManager() {
-		return "";
+		return "private/manager/sectorManager.xhtml?faces-redirect=true";
 	}
 
 	public String redirectToShopManager() {
-		return "";
+		return "private/manager/shopManager.xhtml?faces-redirect=true";
 	}
 
 	public String redirectToAdminPage() {
-		return "";
+		return "private/admin/admin.xhtml?faces-redirect=true";
 	}
 
 }
