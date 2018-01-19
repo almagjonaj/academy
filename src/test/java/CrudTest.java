@@ -1,10 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-
-import com.akademia.dao.DepartmentDao;
 import com.akademia.dao.UserDao;
-import com.akademia.entities.DepartmentEntity;
-import com.akademia.entities.RoleEntity;
 import com.akademia.entities.UserEntity;
 
 public class CrudTest {

@@ -1,5 +1,5 @@
 package com.akademia.managedbeans;
 
-public class ManageProductDao {
+public class ManageCountryBean {
 
 }
