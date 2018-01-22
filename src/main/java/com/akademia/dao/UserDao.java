@@ -8,6 +8,8 @@ import org.hibernate.Session;
 
 import com.akademia.entities.UserEntity;
 import com.akademia.util.HibernateUtil;
+import com.akademia.util.LoggingUtils;
+
 
 public class UserDao  extends GenericDao<UserEntity>  {
 
@@ -24,7 +26,7 @@ public class UserDao  extends GenericDao<UserEntity>  {
 			List<UserEntity> lista = query.getResultList();
 			return lista;
 		} catch (Exception e) {
-			System.out.println("Error message: " + e.getMessage());
+			LoggingUtils.LOG_AKADEMIA.error("Exception: {} ",e.getMessage());
 			return null;
 		}
 	}
@@ -42,7 +44,7 @@ public class UserDao  extends GenericDao<UserEntity>  {
 				userFound = true;
 			}
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			LoggingUtils.LOG_AKADEMIA.error("Exception: {} ",e.getMessage());
 		}
 		return userFound;
 

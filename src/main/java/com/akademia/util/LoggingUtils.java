@@ -8,7 +8,7 @@ import org.apache.logging.log4j.Logger;
 
 public class LoggingUtils {
 	
-	public static final Logger LOG_FE = LogManager.getLogger("CTS-FE-Log");
+	public static final Logger LOG_AKADEMIA = LogManager.getLogger("Akademia-Log");
 
 	public static String parseStackTrace(Exception e) {
 		StringWriter sw = new StringWriter();
