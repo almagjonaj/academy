@@ -29,6 +29,7 @@ public class UserEntity {
 	private String lastName;
 	@Column(name = "password")
 	private String password;
+	
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "user_role", joinColumns = { @JoinColumn(name = "userId", referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "roleId", referencedColumnName = "id")})
 	private List<RoleEntity> roles;
