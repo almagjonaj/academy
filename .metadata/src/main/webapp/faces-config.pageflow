@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15155227937860" configfile="/CompanyManagement/src/main/webapp/faces-config.xml">
-  <nodes xsi:type="pageflow:PFPage" name="secured/login.xhtml" id="pf151602081814914" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf15161857431036 pf15161857431037 pf15161857431038" path="login.xhtml"/>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf15155227937860" configfile="/Academy/src/main/webapp/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="secured/login.xhtml" id="pf151602081814914" referenceLink="//@navigationRule.0/@fromViewId|" outlinks="pf15161857431036 pf15161857431037" path="login.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="private/user/index.xhtml" id="pf15161857431039" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" inlinks="pf15161857431036" path="private/user/index.xhtml"/>
   <nodes xsi:type="pageflow:PFPage" name="private/admin/admin.xhtml" id="pf151618574310310" referenceLink="//@navigationRule.0/@navigationCase.1/@toViewId|" inlinks="pf15161857431037" path="private/admin/admin.xhtml"/>
-  <nodes xsi:type="pageflow:PFPage" name="private/manager/index.xhtml" id="pf151618574310311" referenceLink="//@navigationRule.0/@navigationCase.2/@toViewId|" inlinks="pf15161857431038" path="private/manager/index.xhtml"/>
   <links id="pf15161857431036" target="pf15161857431039" source="pf151602081814914" outcome="user" redirect="true"/>
   <links id="pf15161857431037" target="pf151618574310310" source="pf151602081814914" outcome="admin" redirect="true"/>
-  <links id="pf15161857431038" target="pf151618574310311" source="pf151602081814914" outcome="manager" redirect="true"/>
 </pageflow:Pageflow>

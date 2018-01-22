@@ -9,7 +9,7 @@ public class PageRedirectUtil {
 	public String redirectToWelcome() {
 		return "";
 	}
-
+/*
 	public String redirectToBrandManager() {
 		return "private/manager/brandManager.xhtml?faces-redirect=true";
 	}
@@ -25,6 +25,7 @@ public class PageRedirectUtil {
 	public String redirectToShopManager() {
 		return "private/manager/shopManager.xhtml?faces-redirect=true";
 	}
+	*/
 
 	public String redirectToAdminPage() {
 		return "private/admin/admin.xhtml?faces-redirect=true";

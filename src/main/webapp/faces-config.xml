@@ -21,10 +21,6 @@
 			<to-view-id>private/admin/admin.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
-		<navigation-case>
-			<from-outcome>manager</from-outcome>
-			<to-view-id>private/manager/index.xhtml</to-view-id>
-			<redirect />
-		</navigation-case>
+		
 	</navigation-rule>
 </faces-config>

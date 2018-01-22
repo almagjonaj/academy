@@ -7,9 +7,10 @@ import javax.persistence.TypedQuery;
 import org.hibernate.Session;
 
 import com.akademia.entities.UserEntity;
+import com.akademia.service.UserService;
 import com.akademia.util.HibernateUtil;
 
-public class UserDao extends GenericDao<UserEntity> {
+public class UserDao  extends GenericDao<UserEntity>  {
 
 	private Session session = HibernateUtil.getSessionFactory().openSession();
 

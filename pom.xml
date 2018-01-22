@@ -2,10 +2,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.akademia</groupId>
-	<artifactId>CompanyManagement</artifactId>
+	<artifactId>Academy</artifactId>
 	<packaging>war</packaging>
 	<version>1.0</version>
-	<name>CompanyManagement</name>
+	<name>Academy</name>
 	<url>http://maven.apache.org</url>
 
 	<dependencies>
@@ -82,7 +82,7 @@
 
 	</dependencies>
 	<build>
-		<finalName>CompanyManagement</finalName>
+		<finalName>Academy</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>

@@ -15,12 +15,16 @@ import com.akademia.entities.UserEntity;
 public class ManageUserBean implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	
 	private UserEntity entity = new UserEntity();
-	private UserDao userDao = new UserDao();
+	
+	private UserDao userDao  = new UserDao();
+	
 	private List<UserEntity> users;
 
 	@PostConstruct
 	public void init() {
+		System.out.println("**** "+userDao);
 		users = userDao.getAll();
 	}
 
@@ -48,4 +52,6 @@ public class ManageUserBean implements Serializable {
 	public void setEntity(UserEntity entity) {
 		this.entity = entity;
 	}
+
+
 }
