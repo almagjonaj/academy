@@ -1,14 +1,11 @@
 package com.akademia.entities;
 
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,8 +18,7 @@ public class RoleEntity {
 	private int id;
 	@Column(name = "name")
 	private String roleName;
-	@ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
-	private List<UserEntity> user;
+
 
 	public int getId() {
 		return id;
@@ -40,12 +36,5 @@ public class RoleEntity {
 		this.roleName = roleName;
 	}
 
-	public List<UserEntity> getUser() {
-		return user;
-	}
-
-	public void setUser(List<UserEntity> user) {
-		this.user = user;
-	}
 
 }

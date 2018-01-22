@@ -1,6 +1,5 @@
 package com.akademia.entities;
 
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,9 +7,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -30,9 +27,8 @@ public class UserEntity {
 	@Column(name = "password")
 	private String password;
 	
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "user_role", joinColumns = { @JoinColumn(name = "userId", referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(name = "roleId", referencedColumnName = "id")})
-	private List<RoleEntity> roles;
+	@ManyToOne(fetch = FetchType.LAZY)
+	private RoleEntity role;
 
 	public int getId() {
 		return id;
@@ -74,12 +70,14 @@ public class UserEntity {
 		this.password = password;
 	}
 
-	public List<RoleEntity> getRoles() {
-		return roles;
+	public RoleEntity getRole() {
+		return role;
 	}
 
-	public void setRoles(List<RoleEntity> roles) {
-		this.roles = roles;
+	public void setRole(RoleEntity role) {
+		this.role = role;
 	}
+
+
 
 }

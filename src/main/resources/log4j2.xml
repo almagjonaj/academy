@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration xmlns="http://logging.apache.org/log4j/2.0/config">
+
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%-5p | %d{yyyy-MM-dd HH:mm:ss} | [%t] %C{4} (%F:%L) : %m%n" />
+		</Console>
+		<RollingRandomAccessFile name="FileFE"
+			fileName="logs/akademia.log" filePattern="logs/akademia-%d{yyyy-MM-dd}-(%i).log">
+			<PatternLayout
+				pattern="%-5p | %d{yyyy-MM-dd HH:mm:ss} | [%t] %C{4} (%F:%L) : %m%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+		</RollingRandomAccessFile>
+
+		<RollingRandomAccessFile name="FileErrorFE"
+			fileName="logs/akademia-error.log" filePattern="logs/akademia-error-%d{yyyy-MM-dd}-(%i).log">
+			<PatternLayout
+				pattern="%-5p | %d{yyyy-MM-dd HH:mm:ss} | [%t] %C{4} (%F:%L) : %m%n" />
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+		</RollingRandomAccessFile>
+	</Appenders>
+
+	<Loggers>
+		<logger name="AKADEMIA-Log" additivity="false" level="debug">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="FileFE" />
+		</logger>
+
+		<logger name="AKADEMIA-ERROR-Log" additivity="false" level="error">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="FileErrorFE" />
+		</logger>
+
+		<Root level="debug">
+			<AppenderRef ref="Console" />
+
+		</Root>
+	</Loggers>
+
+</Configuration>

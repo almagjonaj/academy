@@ -11,12 +11,6 @@
 		<property name="show_sql">true</property>
 		<mapping class="com.akademia.entities.UserEntity"></mapping>
 		<mapping class="com.akademia.entities.RoleEntity"></mapping>
-<!-- 		<mapping class="com.akademia.entities.DepartmentEntity"></mapping>
-		<mapping class="com.akademia.entities.CompanyEntity"></mapping>
-		<mapping class="com.akademia.entities.SectorEntity"></mapping>
-		<mapping class="com.akademia.entities.CountryEntity"></mapping>
-		<mapping class="com.akademia.entities.ShopEntity"></mapping>
-		<mapping class="com.akademia.entities.ProductEntity"></mapping>
-		<mapping class="com.akademia.entities.BrandEntity"></mapping> -->
+
 	</session-factory>
 </hibernate-configuration>
